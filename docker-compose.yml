@@ -1,0 +1,29 @@
+# Local infrastructure only. The API itself runs on your machine during development
+# (faster reload, easier debugging). A Dockerfile for the API is added in Phase 2.
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: chainsentinel-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: chainsentinel
+      POSTGRES_PASSWORD: change-me        # dev only; prod uses secrets, never compose literals
+      POSTGRES_DB: chainsentinel
+    ports:
+      - "127.0.0.1:5432:5432"             # bind to localhost only, never 0.0.0.0
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U chainsentinel"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  # Phase 3+: uncomment when introducing caching / Celery
+  # redis:
+  #   image: redis:7-alpine
+  #   ports:
+  #     - "127.0.0.1:6379:6379"
+
+volumes:
+  postgres-data:

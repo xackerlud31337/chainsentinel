@@ -1,0 +1,27 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+build/
+dist/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# tooling
+.idea/
+.vscode/
+.DS_Store
+
+# local data
+*.db
+postgres-data/
