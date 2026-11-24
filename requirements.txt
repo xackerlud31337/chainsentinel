@@ -13,7 +13,7 @@ boolean.py==5.0
 CacheControl==0.15.0
 certifi==2026.11.20
 cfgv==3.5.0
--e git+https://github.com/xackerlud31337/chainsentinel.git@03c254df554615975a4ab3c276cd32a66f124470#egg=chainsentinel
+-e git+https://github.com/xackerlud31337/chainsentinel.git@30dac0c41884475b186f471b40d571897e094659#egg=chainsentinel
 charset-normalizer==3.5.3
 ckzg==2.1.8
 click==8.5.1

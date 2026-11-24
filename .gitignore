@@ -25,3 +25,4 @@ htmlcov/
 # local data
 *.db
 postgres-data/
+.env
