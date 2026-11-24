@@ -5,7 +5,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 rpc_url = os.getenv("RPC_URL")
-
+if not rpc_url:
+    raise RuntimeError("RPS_URL is not set. Copy .env.example to .env and fill it in.")
+    
 
 app = FastAPI()
 
